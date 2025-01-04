@@ -25,6 +25,7 @@ export default tseslint.config(
       ],
       "@typescript-eslint/no-explicit-any": "off", // any 타입 허용
       "no-unused-vars": "off", // 사용하지 않는 변수 허용
+      "react/prop-types": "off",
     },
   }
 );
