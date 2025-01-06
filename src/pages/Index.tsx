@@ -7,11 +7,8 @@ const Index = () => {
 
       <div className="flex flex-col">
         <button className="cmButton">
-          <Link to="/Login">로그인</Link>
+          <Link to="/Auth">로그인 또는 회원가입</Link>
         </button>
-        <p className="text-gray-400 pt-[10px] underline">
-          <Link to="/Auth">계정이 없다면 회원가입하기</Link>
-        </p>
       </div>
     </div>
   );

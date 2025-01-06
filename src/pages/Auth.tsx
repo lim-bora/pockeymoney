@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { z as zod } from "zod";
 import LoginForm from "../components/LoginForm";
 
 const Auth = () => {
-  const [mode, setMode] = useState("login");
+  const [mode, setMode] = useState("signup");
 
   return (
     <div>
