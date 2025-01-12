@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { supabase } from "../client/supabaseClient";
+import { supabase } from "../../client/supabaseClient";
 import { useNavigate } from "react-router-dom";
 
 // 로그인 회원가입 mode 속성
@@ -88,11 +88,21 @@ const LoginForm = ({ mode, setMode }: LoginFormProps) => {
 
   return (
     <div>
-      <h1 className="text-center ">{mode === "login" ? "LOGIN" : "AUTH"}</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <h1 className="text-center title">
+        {mode === "login" ? "LOGIN" : "AUTH"}
+      </h1>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-[20px]"
+      >
         {mode === "signup" && (
           <div className="flex flex-col">
-            <label htmlFor="nickname">nickname</label>
+            <label
+              htmlFor="nickname"
+              className="text-[11px] text-[#aaaaaa] mb-[5px]"
+            >
+              닉네임
+            </label>
             <input
               id="nickname"
               className="cmInput"
@@ -100,12 +110,19 @@ const LoginForm = ({ mode, setMode }: LoginFormProps) => {
               {...register("nickname", { required: "닉네임을 입력하세요" })}
             />
             {errors.nickname && (
-              <p className="text-accentText">{errors.nickname.message}</p>
+              <p className="text-accentText text-[10px] mt-[8px] text-right">
+                {errors.nickname.message}
+              </p>
             )}
           </div>
         )}
         <div className="flex flex-col">
-          <label htmlFor="email">이메일</label>
+          <label
+            htmlFor="email"
+            className="text-[11px] text-[#aaaaaa] mb-[5px]"
+          >
+            이메일
+          </label>
           <input
             id="email"
             type="email"
@@ -114,11 +131,18 @@ const LoginForm = ({ mode, setMode }: LoginFormProps) => {
             {...register("email")}
           />
           {errors.email && (
-            <p className="text-accentText">{errors.email.message}</p>
+            <p className="text-accentText text-[10px] mt-[8px] text-right">
+              {errors.email.message}
+            </p>
           )}
         </div>
         <div className="flex flex-col">
-          <label htmlFor="password">비밀번호</label>
+          <label
+            htmlFor="password"
+            className="text-[11px] text-[#aaaaaa] mb-[5px]"
+          >
+            비밀번호
+          </label>
           <input
             id="password"
             type="password"
@@ -127,19 +151,21 @@ const LoginForm = ({ mode, setMode }: LoginFormProps) => {
             {...register("password")}
           />
           {errors.password && (
-            <p className="text-accentText">{errors.password.message}</p>
+            <p className="text-accentText text-[10px] mt-[8px] text-right">
+              {errors.password.message}
+            </p>
           )}
         </div>
         <button className="cmButton" type="submit">
           {mode === "login" ? "로그인하기" : "회원가입하기"}
         </button>
       </form>
-      <p>
+      <p className="text-center pt-[20px]">
         {mode === "login"
           ? "아직 계정이 없으신가요?"
           : "이미 계정이 있으신가요?"}
         <span
-          className="cursor-pointer "
+          className="font-bold cursor-pointer text-subColor ml-[5px]"
           onClick={() => setMode(mode === "login" ? "signup" : "login")}
         >
           {mode === "login" ? "회원가입 하기" : "로그인 하기"}

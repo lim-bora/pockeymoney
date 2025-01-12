@@ -4,8 +4,10 @@ module.exports = {
     extend: {
       colors: {
         primary: "#21BF48",
-        mainText: "#000000",
-        subText: "#767676",
+        mainColor: "#00592D",
+        subColor: "#243832",
+        wText: "#ffffff",
+        bText: "#222222",
         accentText: "#EB5757",
         background: "#f2f2f2",
       },
