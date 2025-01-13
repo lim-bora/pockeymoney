@@ -1,17 +1,9 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../client/supabaseClient";
-
-interface UserType {
-  id?: string;
-  email: string;
-  user_metadata: {
-    nickname: string;
-    email?: string;
-  };
-}
+import { User } from "@supabase/supabase-js"; //supabase type가져오기
 
 const useUser = () => {
-  const [user, setUser] = useState<UserType | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const fetchUser = async () => {
